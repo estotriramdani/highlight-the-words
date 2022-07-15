@@ -3,14 +3,14 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import MockData from '../../models/MockDataModel';
 
 export interface ISearchResult {
-  result: Result[];
+  result: IResult[];
   page: number;
   limit: number;
   totalRows: number;
   totalPage: number;
 }
 
-export interface Result {
+export interface IResult {
   id: number;
   first_name: string;
   last_name: string;
@@ -25,8 +25,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const page = +req.query.page! || 0;
-  const limit = +req.query.limit! || 30;
-  const search = req.query.search_query || '';
+  const limit = +req.query.limit! || 10;
+  const search = req.query.q || '';
   const offset = limit * page;
   const whereStatement = {
     [Op.or]: [

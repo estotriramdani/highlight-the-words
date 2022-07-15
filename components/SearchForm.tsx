@@ -10,10 +10,10 @@ export default function SearchForm(props: SearchFormProps) {
   return (
     <form onSubmit={props.onSubmit}>
       <p className="mb-2">Type Your Keyword</p>
-      <div className="flex gap-1">
+      <div className="flex gap-2">
         <input
-          type="text"
           value={props.searchQuery}
+          type="text"
           placeholder="Type here"
           className="input w-full block input-bordered flex-1"
           onChange={(event) => props.setSearchQuery(event.target.value)}

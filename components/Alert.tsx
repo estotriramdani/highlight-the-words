@@ -13,7 +13,13 @@ interface AlertProps {
 export default function Alert(props: AlertProps) {
   const { variant, children } = props;
   return (
-    <div className={`alert alert-${variant || 'success'} shadow-lg`}>
+    <div
+      className={`alert ${variant === 'success' && 'alert-success'} ${
+        variant === 'warning' && 'alert-warning'
+      } ${variant === 'error' && 'alert-error'} ${
+        variant === 'info' && 'alert-info'
+      } shadow-lg`}
+    >
       <div>
         {variant === 'error' && <AlertIconError />}
         {variant === 'success' && <AlertIconSuccess />}
