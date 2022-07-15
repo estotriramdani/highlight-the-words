@@ -8,6 +8,10 @@ export default function ButtonPagination(props: ButtonPaginationProps) {
   const { totalPage, page, setPage } = props;
 
   const nextPage = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     const nextPage = parseInt(page) + 1;
     if (nextPage <= totalPage - 1) {
       setPage(nextPage.toString());
@@ -15,6 +19,10 @@ export default function ButtonPagination(props: ButtonPaginationProps) {
   };
 
   const prevPage = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     const prevPage = parseInt(page) - 1;
     if (prevPage >= 0) {
       setPage(prevPage.toString());
