@@ -36,7 +36,9 @@ export default function ButtonPagination(props: ButtonPaginationProps) {
           <button className="btn" disabled={page === '0'} onClick={prevPage}>
             «
           </button>
-          <button className="btn">Page {+page + 1}</button>
+          <button className="btn">
+            Page {+page + 1} of {totalPage}
+          </button>
           <button
             className="btn"
             disabled={+page === totalPage - 1}
