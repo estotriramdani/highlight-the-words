@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [finalSearchQuery, setfinalSearchQuery] = useState('');
   const [page, setPage] = useState<string>('0');
-  const url = `/api/search?q=${finalSearchQuery}&page=${page}&limit=10`;
+  const url = `${process.env.NEXT_PUBLIC_API}/search?q=${finalSearchQuery}&page=${page}&limit=10`;
 
   const { data: dataSWR } = useSWR<ISearchResult>(
     [url, { method: 'GET' }],
