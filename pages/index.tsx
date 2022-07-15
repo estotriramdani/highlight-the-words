@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { FormEvent, MouseEventHandler, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import useSWR from 'swr';
 import Alert from '../components/Alert';
 import ButtonPagination from '../components/ButtonPagination';
