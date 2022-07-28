@@ -1,4 +1,5 @@
 import { IResult } from '../pages/api/search';
+import Highlighter from 'react-highlight-words';
 
 interface ResultCardProps {
   result: IResult;
@@ -18,6 +19,8 @@ export default function ResultCard(props: ResultCardProps) {
   } = props;
   const qLength = searchQuery.length;
   const idx = findIndexOfSearchQuery(description, searchQuery);
+
+  // bellow is manualy highlight the search query
   const prev = description.substring(0, idx);
   const higlighted = (
     <span className="text-info font-medium underline">
@@ -25,17 +28,25 @@ export default function ResultCard(props: ResultCardProps) {
     </span>
   );
   const after = description.substring(idx + qLength);
+
   return (
     <div className="card w-full bg-base-300 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           {last_name}, {first_name}
         </h2>
-        <p>
+        {/* <p>
           {prev}
           {higlighted}
           {after}
-        </p>
+        </p> */}
+        {/* <p dangerouslySetInnerHTML={{ __html: newDescription }} /> */}
+        <Highlighter
+          highlightClassName="text-info font-medium underline bg-transparent"
+          searchWords={['a', 'c', 'd']}
+          autoEscape={true}
+          textToHighlight={description}
+        />
       </div>
     </div>
   );

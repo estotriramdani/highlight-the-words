@@ -6,6 +6,7 @@ import ButtonPagination from '../components/ButtonPagination';
 import ResultCard from '../components/ResultCard';
 import SearchForm from '../components/SearchForm';
 import { fetchAPI } from '../services';
+import { textSplitter } from '../utils';
 import { ISearchResult } from './api/search';
 
 const Home: NextPage = () => {
@@ -22,6 +23,8 @@ const Home: NextPage = () => {
   const formSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setPage('0');
+    const splitted = textSplitter(searchQuery);
+    console.log(splitted.toString());
     setfinalSearchQuery(searchQuery);
   };
 
