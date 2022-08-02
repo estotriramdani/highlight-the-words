@@ -1,8 +1,8 @@
 export const alphabets = {
   a: 'z',
   b: 'y',
-  c: 'x',
-  d: 'r',
+  c: 'r',
+  d: 'c',
   e: 'v',
   f: 'u',
   g: 't',
